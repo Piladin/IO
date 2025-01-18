@@ -1,5 +1,5 @@
 from rest_framework import viewsets, filters, status
-from .models import Exercise, CustomUser
+from .models import Exercise, SystemUser
 from .serializers import ExerciseSerializer
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, IsAdminUser, AllowAny
@@ -9,6 +9,7 @@ from django.contrib.auth.models import User
 from rest_framework import generics
 from .serializers import RegisterSerializer, SystemUserSerializer
 from django.contrib.auth import get_user_model
+from .recommendation_logic import recommend_exercises
 
 
 SystemUser = get_user_model()
@@ -24,16 +25,15 @@ class ExerciseAdminViewSet(viewsets.ModelViewSet):
     queryset = Exercise.objects.all()
     serializer_class = ExerciseSerializer
     permission_classes = [IsAdminUser]
-
+    
 class RecommendedExercisesView(generics.ListAPIView):
     serializer_class = ExerciseSerializer
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         user = self.request.user
-        # Implement your recommendation logic here
-        favorite_muscle_groups = user.favorite_muscle_groups  # Replace with actual user preferences
-        return Exercise.objects.filter(muscle_group__in=favorite_muscle_groups)
+        return recommend_exercises(user)
+
     
 @api_view(['POST'])
 @permission_classes([AllowAny])

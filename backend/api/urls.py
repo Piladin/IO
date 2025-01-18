@@ -3,6 +3,7 @@ from rest_framework.routers import DefaultRouter
 from .views import ExerciseViewSet, ExerciseAdminViewSet, RecommendedExercisesView, register
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
+
 router = DefaultRouter()
 router.register(r'exercises', ExerciseViewSet)
 router.register(r'admin/exercises', ExerciseAdminViewSet)
