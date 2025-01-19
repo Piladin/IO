@@ -6,7 +6,6 @@ class Exercise(models.Model):
     muscle_group = models.CharField(max_length=100)
     exercise_type = models.CharField(max_length=100)
     difficulty = models.CharField(max_length=50)
-    goal = models.CharField(max_length=100)
     description = models.TextField()
     tutorial = models.TextField()
 

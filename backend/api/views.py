@@ -19,7 +19,7 @@ class ExerciseViewSet(viewsets.ModelViewSet):
     serializer_class = ExerciseSerializer
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
     search_fields = ['name', 'muscle_group', 'exercise_type']
-    ordering_fields = ['difficulty', 'goal']
+    ordering_fields = ['difficulty']
 
 class ExerciseAdminViewSet(viewsets.ModelViewSet):
     queryset = Exercise.objects.all()
