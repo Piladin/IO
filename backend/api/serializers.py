@@ -6,7 +6,7 @@ from .models import Exercise, SystemUser, BrowsingHistory
 class ExerciseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Exercise
-        fields = ['id', 'name', 'muscle_group', 'difficulty', 'exercise_type']
+        fields = ['id', 'name', 'muscle_group', 'difficulty', 'exercise_type', 'description', 'tutorial']
 
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True, required=True)

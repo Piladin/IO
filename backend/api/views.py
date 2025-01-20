@@ -10,6 +10,7 @@ from rest_framework import generics
 from .serializers import RegisterSerializer, SystemUserSerializer
 from django.contrib.auth import get_user_model
 from .recommendation_logic import recommend_exercises
+from .permissions import IsAdminOrReadOnly
 
 
 SystemUser = get_user_model()
@@ -20,6 +21,7 @@ class ExerciseViewSet(viewsets.ModelViewSet):
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
     search_fields = ['name', 'muscle_group', 'exercise_type']
     ordering_fields = ['difficulty']
+    permission_classes = [IsAdminOrReadOnly]
 
 class ExerciseAdminViewSet(viewsets.ModelViewSet):
     queryset = Exercise.objects.all()
