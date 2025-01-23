@@ -1,0 +1,3 @@
+from .exercise_controller import ExerciseViewSet, ExerciseAdminViewSet
+from .system_user_controller import register
+from .recommendation_controller import RecommendedExercisesView
