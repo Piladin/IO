@@ -1,5 +1,4 @@
-# app/middleware.py
-from .models import BrowsingHistory
+from api.models import BrowsingHistory
 
 class SaveBrowsingHistoryMiddleware:
     def __init__(self, get_response):

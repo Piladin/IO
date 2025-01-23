@@ -1,6 +1,6 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import ExerciseViewSet, ExerciseAdminViewSet, RecommendedExercisesView, register
+from api.controllers import ExerciseViewSet, ExerciseAdminViewSet, RecommendedExercisesView, register
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 

@@ -1,5 +1,7 @@
 from django.contrib import admin
-from .models import Exercise, SystemUser, BrowsingHistory
+from api.models.system_user import SystemUser
+from api.models.exercise import Exercise
+from api.models.browsing_history import BrowsingHistory
 
 admin.site.register(SystemUser)
 admin.site.register(Exercise)

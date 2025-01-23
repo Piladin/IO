@@ -1,5 +1,5 @@
 from django.db.models import Count
-from .models import BrowsingHistory, Exercise
+from api.models import BrowsingHistory, Exercise
 
 
 def recommend_based_on_recent_activity(user):
